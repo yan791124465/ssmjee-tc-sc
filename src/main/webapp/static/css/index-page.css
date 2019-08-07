@@ -1,0 +1,50 @@
+body{
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.portlet{
+    margin-bottom: 5px;
+}
+
+.table-scrollable td{
+    word-break: keep-all;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+.table .btn {
+    margin-right: 0px;
+}
+
+.table-toolbar{
+    margin-bottom: 0px;
+}
+
+.input-go-page{
+    float: left;
+    height: 33px;
+    text-align: center;
+    border-left-width: 0px;
+}
+
+.pagination{
+    vertical-align: top;
+}
+
+#pageSize{
+    height: 33px;
+}
+
+.table-checkbox{
+    width: 45px;
+}
+
+.mt-checkbox{
+    padding-left: 0px;
+}
+
+input.error,label.error{
+    color: red;
+    border-color: red;
+}

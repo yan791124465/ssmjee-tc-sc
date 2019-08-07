@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ * @author GaoXiang
+ * @version 1.0
+ * @since 2016/10/27.
+ -->
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+        version="2.0">
+
+    <description>elangzhi自定义的标签</description>
+    <display-name>ssm functions elangzhi</display-name>
+    <tlib-version>1.1</tlib-version>
+    <short-name>ssm</short-name>
+    <uri>http://ssm.elangzhi.com/jsp/tag/functions</uri>
+
+    <function>
+        <description>获取字典对象列表</description>
+        <name>getDictList</name>
+        <function-class>com.jee.ssm.common.tld.TagUtils</function-class>
+        <function-signature>java.util.List getDictList(java.lang.String)</function-signature>
+        <example>${ssm:getDictList(typeName)}</example>
+    </function>
+
+    <function>
+        <name>dateToString</name>
+        <function-class>com.jee.ssm.common.tld.TagUtils</function-class>
+        <function-signature>java.lang.String dateToString(java.util.Date)</function-signature>
+    </function>
+
+    <function>
+        <name>dateToStringTime</name>
+        <function-class>com.jee.ssm.common.tld.TagUtils</function-class>
+        <function-signature>java.lang.String dateToStringTime(java.util.Date)</function-signature>
+    </function>
+
+    <function>
+        <name>showStringLength</name>
+        <function-class>com.jee.ssm.common.tld.TagUtils</function-class>
+        <function-signature>java.lang.String showStringLength(java.lang.String,java.lang.Integer)</function-signature>
+    </function>
+
+    <function>
+        <name>toJson</name>
+        <function-class>com.jee.ssm.common.tld.TagUtils</function-class>
+        <function-signature>java.lang.String toJson(java.lang.Object)</function-signature>
+    </function>
+
+</taglib>

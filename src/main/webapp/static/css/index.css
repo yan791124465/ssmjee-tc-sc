@@ -1,0 +1,75 @@
+html,body{
+    height: 100%;
+    font-family: "Microsoft YaHei UI", serif;
+}
+
+.page-container{
+    height: calc(100% - 83px);
+}
+
+.page-content-wrapper{
+    height: 100%;
+}
+
+.page-content{
+    height: 100%;
+}
+
+#tabContent{
+    width: 100%;
+    height: 100%;
+    padding-top: 39px;
+}
+
+.page-sidebar .page-sidebar-menu > .sidebar-home{
+    margin-top: 45px;
+}
+
+.nav-tabs{
+    background-color: #7DEAEA;
+    height: 39px;
+    margin-top: 50px;
+    border-bottom: 1px #46C3A1 solid;
+}
+
+
+.nav-tab-tools{
+    width:235px;
+}
+
+.nav-pills > li.nav-tab-tools-reload{
+    text-align: center;
+    background-color: #b5ffbd;
+    font-family: "Microsoft YaHei UI", serif;
+    width:70px;
+}
+
+.nav-pills > li.nav-tab-tools-close{
+    text-align: center;
+    background-color: #b5ffbd;
+    font-family: "Microsoft YaHei UI", serif;
+    width:70px;
+}
+.nav-pills > li.nav-tab-tools-close-all{
+    text-align: center;
+    background-color: #b5ffbd;
+    font-family: "Microsoft YaHei UI", serif;
+    width:95px;
+}
+
+.nav-pills > li.nav-tab-tools-advice{
+    text-align: center;
+    background-color: #b5ffbd;
+    font-family: "Microsoft YaHei UI", serif;
+    width:235px;
+}
+
+.nav-pills>li+li{
+    margin-left: 0px;
+    border-right: 1px #52B3AE dashed;
+}
+
+.iframe-item{
+    width: 100%;
+    height: 100%;
+}

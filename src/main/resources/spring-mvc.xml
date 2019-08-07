@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 启动对@AspectJ注解的支持 通知spring使用cglib而不是jdk的来生成代理方法 AOP可以拦截到Controller -->
+    <aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true" />
+
+    <!-- 它背后注册了很多用于解析注解的处理器,其中就包括<context:log-config/>配置的注解所使用的处理器 -->
+    <!-- 所以配置了<context:component-scan base-package="">之后,便无需再配置<context:log-config> -->
+    <context:component-scan base-package="com.jee.ssm">
+        <context:include-filter type="regex" expression=".app.*"/>
+        <context:include-filter type="regex" expression=".controller.*"/>
+    </context:component-scan>
+
+    <!-- @Controller注解的使用前提配置 -->
+    <!--使用4.x 无需配置JSON解析器 -->
+    <mvc:annotation-driven />
+
+    <!-- 如果发现是静态资源的请求，就将该请求转由Web应用服务器默认的Servlet处理 -->
+    <mvc:default-servlet-handler />
+    <!-- 配置哪些是静态资源，缺省Servlet 直接返回 -->
+    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+
+
+    <!-- 配置SpringMVC的视图解析器 -->
+    <!-- 其viewClass属性的默认值就是org.springframework.web.servlet.view.JstlView -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/view/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!--  定义跳转异常  -->
+    <bean id="exceptionResolver" class="com.jee.ssm.common.exception.MyExceptionResolver"/>
+
+    <!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
+    <bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 默认编码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 文件大小最大值 -->
+        <property name="maxUploadSize" value="10485760000"/>
+        <!-- 内存中的最大值 -->
+        <property name="maxInMemorySize" value="409600"/>
+    </bean>
+
+
+    <!-- 启用shrio授权注解拦截方式 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+
+</beans>  
