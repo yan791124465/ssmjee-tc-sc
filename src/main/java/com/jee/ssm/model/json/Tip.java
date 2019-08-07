@@ -85,8 +85,6 @@ public class Tip {
         this.code = code;
         this.message = message;
     }
-
-
     /**
      * 返回指定标识错误，并携带一段提示和数据；
      * @param code
